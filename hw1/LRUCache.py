@@ -15,9 +15,9 @@ class LRUCache:
     def set(self, key: str, value: str) -> None:
         if key in self.cache:
             self.cache.pop(key)
-        elif len(self.cache) == self.capacity:
-            self.cache.pop(next(iter(self.cache)))
         self.cache[key] = value
+        if len(self.cache) == self.capacity:
+            self.cache.pop(next(iter(self.cache)))
 
     def rem(self, key: str) -> None:
         if key in self.cache:
